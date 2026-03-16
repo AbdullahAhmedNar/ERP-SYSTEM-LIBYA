@@ -1,0 +1,1 @@
+"use strict";const t=require("electron"),o=["db:loadState","db:saveState","db:getBackupPath","backup:copySqlite","backup:restoreFromSqlite"];t.contextBridge.exposeInMainWorld("electronAPI",{invoke:(e,...r)=>{if(o.includes(e))return t.ipcRenderer.invoke(e,...r);throw new Error(`Unauthorized channel: ${e}`)},isElectron:!0});
